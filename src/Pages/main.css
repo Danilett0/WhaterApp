@@ -1,0 +1,87 @@
+.CountryAndCity {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  align-items: center;
+}
+
+.CountryAndCity > div {
+  margin-right: 10px;
+}
+
+.CountryAndCity > h4 {
+  margin-right: 10px;
+}
+
+.fullsize {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.highlight {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.527);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 3px 3px 7px rgb(156, 154, 154);
+}
+
+.highlight:hover {
+  background-color: rgba(255, 255, 255, 0.74);
+  transition: 2s;
+}
+
+.highlight > h4 {
+  font-weight: bold;
+  font-style: none;
+  list-style: none;
+}
+
+.highlight .btnIngreso {
+  background-color: rgb(19, 114, 168);
+  padding: 10px;
+  width: 150px;
+  margin-top: 10px;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.highlight .btnIngreso:hover {
+  background-color: rgb(12, 87, 131);
+}
+
+.mainNotFound {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mainNotFound .ImgNotFound {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+}
+
+.mainNotFound a {
+  text-decoration: none;
+  color: rgb(49, 49, 49);
+  padding: 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.596));
+}

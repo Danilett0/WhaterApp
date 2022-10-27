@@ -1,0 +1,24 @@
+.item{
+    display: flex;
+    width: 100%;
+    max-width: 230px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;    
+    align-items: center;
+    padding: 5px;
+}
+
+.item:hover{
+    background: #eee;
+    cursor: pointer;
+}
+
+.main-items{
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+   max-width: 1000px;
+   margin: 10px auto;
+   user-select: none;
+}

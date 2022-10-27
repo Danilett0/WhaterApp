@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 const CityInfo = ({city, country}) => {
   return (
     <>
-    <Typography display="inline" variant="h4" color="#1EA7FD"> {country} </Typography>  
+    <Typography display="inline" variant="h4"> {country} </Typography>  
     <Typography display="inline" variant="h5" > {city} </Typography>  
     </>
   )

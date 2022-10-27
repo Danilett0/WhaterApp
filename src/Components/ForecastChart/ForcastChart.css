@@ -1,0 +1,12 @@
+.MainGrafic{
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 7px rgb(212, 212, 212);
+    background: rgb(247, 247, 247);
+ 
+}

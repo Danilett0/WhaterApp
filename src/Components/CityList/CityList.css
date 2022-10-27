@@ -1,14 +1,16 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
 .citys{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.citys li h4 {
+    color: #1EA7FD;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .CitiesList{
@@ -20,17 +22,29 @@
     padding: 10px;
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-bottom: 5px solid #eee;
 }
 
 .CitiesList:hover{
     cursor: pointer;
     border-bottom: 5px solid rgb(15, 128, 180);
-    transition: .2s;
+    transition: 1.5s;
 }
+
+.CitiesList > div > h3{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.Main-Weather{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 @media (max-width: 768px){ 
     

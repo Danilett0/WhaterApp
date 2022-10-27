@@ -7,7 +7,7 @@ import '@testing-library/jest-dom/extend-expect'
 test("whather render", async () => {
 
     const temperature = 10;
-    const state = "sunny";
+    const state = "clear";
    
     // renderiza el component y retorna resultado
     const { findAllByRole } = render(<Weather temperature={temperature} state={state} />);

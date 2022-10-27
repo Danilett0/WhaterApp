@@ -1,18 +1,43 @@
-import CityInfo from "./Components/CityInfo/CityInfo";
-import Weather from "./Components/Weather/Weather";
-import CityList from "./Components/CityList/CityList";
-import "./App.css";
+import React from "react";
+import WelcomePage from "./Pages/WelcomePage";
+import MainPage from "./Pages/MainPage";
+import CytyPage from "./Pages/CityPage";
+import NotFoundPage from "./Pages/NotFoundPage";
+import AppFrame from "./Components/AppFrame/AppFrame";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <main className="App-main">
+    <div className="main">
+      <Router>
 
-      <CityInfo />
-      <Weather />
-      <CityList />
-      
-    </main>
+        <Switch>
+
+          <Route exact path="/">
+            <WelcomePage />
+          </Route>
+
+          <Route path="/main">
+            <MainPage />
+          </Route>
+
+          <Route path="/city">
+            <CytyPage />
+          </Route>
+
+          <Route path="/appframe">
+            <AppFrame />
+          </Route>
+
+          <Route>
+            <NotFoundPage />
+          </Route>
+
+        </Switch>
+
+      </Router>
+    </div>
   );
-}
+};
 
 export default App;
