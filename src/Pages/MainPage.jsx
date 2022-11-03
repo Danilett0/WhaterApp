@@ -7,8 +7,8 @@ const MainPage = (props) => {
 
   const history = useHistory();
 
-  const onClickHandler = () => {
-    history.push("/city");
+  const onClickHandler = (city, countryCode) => {
+    history.push(`/city/${countryCode}/${city}`);
   };
 
   const cities = [
