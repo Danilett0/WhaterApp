@@ -1,8 +1,8 @@
 import {useState, useEffect } from "react";
 import axios from "axios";
-import convertUnits from "convert-units";
 // import { validValues } from "../Components/IconState";
-import {getCityCode} from './../Utils/utils'
+import {getCityCode, toCelsius} from './../Utils/utils'
+import {getWeatherUrl} from './../Utils/urls'
 
 const useCityList = (cities) => {
 
@@ -11,19 +11,16 @@ const useCityList = (cities) => {
   
     useEffect(() => {
       const setWeather = async (city, countryCode) => {
-        const appid = "1988644c6e1d994a6dca62d33fe09348";
-  
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${appid}`;
-  
+
+        const url = getWeatherUrl({city, countryCode});
+        
         try {
           const response = await axios.get(url);
           const { data } = response;
-  
-          const temperature = Number(
-            convertUnits(data.main.temp).from("K").to("C").toFixed(0)
-          );
+          
+          const temperature = toCelsius(data.main.temp);
           const state = data.weather[0].main.toLowerCase();
-  
+
           const propName =  getCityCode(city, countryCode);
           const propValue = { temperature, state }; // {temperature: 10 , state: 'sunny' }
   
