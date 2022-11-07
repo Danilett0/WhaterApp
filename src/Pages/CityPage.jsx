@@ -12,16 +12,9 @@ import "moment/locale/es";
 import convertUnits from "convert-units";
 import "./main.css";
 
-const CityPage = (props) => {
-  const country = "Argentina";
-  const state = "clouds";
-  const temperature = 20;
-  const humidity = 80;
-  const wind = 5;
-
-  const [data, setData] = useState(null);
+export const useCityPage = () => {
+  const [chartData, setChartData] = useState(null);
   const [forecastItemsList, setForecastItemsList] = useState(null);
-
   const { city, countryCode } = useParams();
 
   useEffect(() => {
@@ -35,25 +28,28 @@ const CityPage = (props) => {
         const toCelsius = (temp) =>
           Number(convertUnits(temp).from("K").to("C").toFixed(0));
 
-        const daysAhead = [0, 1, 2, 3, 4];
+        const daysAhead = [0, 1, 2, 3, 4, 5, 6];
         const days = daysAhead.map((d) => moment().add(d, "d"));
 
-        const dataAux = days.map((day) => {
-          const tempObjArray = data.list.filter((item) => {
-            const dayOfYear = moment.unix(item.dt).dayOfYear();
-            return dayOfYear === day.dayOfYear();
-          });
+        const dataAux = days
+          .map((day) => {
+            const tempObjArray = data.list.filter((item) => {
+              const dayOfYear = moment.unix(item.dt).dayOfYear();
+              return dayOfYear === day.dayOfYear();
+            });
 
-          const temps = tempObjArray.map((item) => item.main.temp);
+            const temps = tempObjArray.map((item) => item.main.temp);
 
-          return {
-            dayHour: day.format("ddd"),
-            min: toCelsius(Math.min(...temps)),
-            max: toCelsius(Math.max(...temps)),
-          };
-        });
+            return {
+              dayHour: day.format("ddd"),
+              min: toCelsius(Math.min(...temps)),
+              max: toCelsius(Math.max(...temps)),
+              hasTemps: temps.length > 0 ? true : false,
+            };
+          })
+          .filter((item) => item.hasTemps);
 
-        setData(dataAux);
+        setChartData(dataAux);
 
         const interval = [4, 8, 12, 16, 20, 24];
         const forecastItemsListAux = data.list
@@ -75,6 +71,18 @@ const CityPage = (props) => {
 
     getForecast();
   }, [city, countryCode]);
+
+  return { city, data: chartData, forecastItemsList };
+};
+
+const CityPage = (props) => {
+  const { city, data, forecastItemsList } = useCityPage();
+
+  const country = "Argentina";
+  const state = "clouds";
+  const temperature = 20;
+  const humidity = 80;
+  const wind = 5;
 
   return (
     <AppFrame>

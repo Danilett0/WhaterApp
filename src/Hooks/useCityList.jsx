@@ -28,8 +28,7 @@ const useCityList = (cities) => {
           const propValue = { temperature, state }; // {temperature: 10 , state: 'sunny' }
   
           setAllWeather((AllWeather) => ({
-            ...AllWeather,
-            [propName]: propValue,
+            ...AllWeather, [propName]: propValue,
           }));
         } catch (error) {
           if (error.response) {
