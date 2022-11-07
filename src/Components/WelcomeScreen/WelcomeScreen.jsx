@@ -7,10 +7,8 @@ const WelcomeScreen = ({ children }) => {
 
   const myRefDiv = useRef(null);
   const [vanta, setVanta] = useState(0);
-  console.log("My Current Div ", myRefDiv.current);
 
   useEffect(() => {
-    console.log("MyRefDiv.current (useEffect)", myRefDiv.current);
 
     if (!vanta) {
       setVanta(
@@ -19,13 +17,11 @@ const WelcomeScreen = ({ children }) => {
           el: myRefDiv.current,
         })
       );
-      console.log("establesco vanta a un valor mayor a 0");
     }
 
     return () => {
       if (vanta) {
         vanta.destroy();
-        console.log("Libero los recursos de vanta");
       }
     };
   }, [vanta]);

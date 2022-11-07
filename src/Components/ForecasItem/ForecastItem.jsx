@@ -6,8 +6,6 @@ import IconState , {validValues} from '../IconState';
 
 const ForecastItem = ({ hour, state, temperature, weekDay }) => {
 
-  console.log("recivo parametros vacios: " + hour, state, temperature, weekDay);
-
   return (
     <div className="main-items">
       
