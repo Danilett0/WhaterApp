@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import CityInfo from "./../CityInfo";
 import Alert from "@material-ui/lab/Alert";
-import convertUnits from "convert-units";
 import Weather from "./../Weather";
 import "./CityList.css";
-
-const getCityCode = (city, countryCode) => `${city}-${countryCode}`;
+import useCityList from "../../Hooks/useCityList";
+import { getCityCode } from "./../../Utils/utils";
 
 const renderCityAndCountry =
   (eventonClickCity) => (cityAndCountry, weather) => {
@@ -30,46 +28,7 @@ const renderCityAndCountry =
   };
 
 const CityList = ({ cities, onClickCity }) => {
-  const [AllWeather, setAllWeather] = useState({});
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const setWeather = async (city, countryCode) => {
-      const appid = "1988644c6e1d994a6dca62d33fe09348";
-
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${appid}`;
-
-      try {
-        const response = await axios.get(url);
-        const { data } = response;
-
-        const temperature = Number(
-          convertUnits(data.main.temp).from("K").to("C").toFixed(0)
-        );
-        const state = data.weather[0].main.toLowerCase();
-
-        const propName = getCityCode(city, countryCode);
-        const propValue = { temperature, state }; // {temperature: 10 , state: 'sunny' }
-
-        setAllWeather((AllWeather) => ({
-          ...AllWeather,
-          [propName]: propValue,
-        }));
-      } catch (error) {
-        if (error.response) {
-          setError("Ha ocurrido un error en el servidor del clima");
-        } else if (error.request) {
-          setError("Por favor verifique su conexxio de internet");
-        } else {
-          setError("Error al cargar los datos del clima");
-        }
-      }
-    };
-
-    cities.forEach(({ city, countryCode }) => {
-      setWeather(city, countryCode);
-    });
-  }, [cities]);
+  const { AllWeather, error, setError } = useCityList(cities);
 
   return (
     <div>
