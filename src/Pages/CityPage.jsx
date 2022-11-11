@@ -6,6 +6,7 @@ import useCityPage from "../Hooks/useCityPage";
 import ForecastChart from "../Components/ForecastChart/ForecastChart";
 import Forecast from "../Components/Forecast/Forecast";
 import AppFrame from "../Components/AppFrame/AppFrame";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import "moment/locale/es";
 import "./main.css";
 
@@ -27,6 +28,12 @@ const CityPage = (props) => {
 
       <div>
         <WeatherDetails humidity={humidity} wind={wind} />
+      </div>
+
+      <div className="linear-progress">
+        {
+          !data && !forecastItemsList && <LinearProgress />
+        }
       </div>
 
       <div>{data && <ForecastChart data={data} />}</div>

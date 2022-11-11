@@ -85,3 +85,9 @@
   text-transform: uppercase;
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.596));
 }
+
+.linear-progress {
+  max-width: 1000px;
+  margin: auto;
+  width: 100%;
+}
