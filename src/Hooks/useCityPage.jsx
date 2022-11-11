@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import moment from "moment";
 import "moment/locale/es";
 import { getForecastUrl } from "./../Utils/urls";
-import { toCelsius } from "./../Utils/utils";
 import getCharData from "../Utils/Transform/getChartData";
+import getForecastItemList from "../Utils/Transform/getForecastItemList";
 
 export const useCityPage = () => {
   const [chartData, setChartData] = useState(null);
@@ -24,17 +23,7 @@ export const useCityPage = () => {
 
         setChartData(dataAux);
 
-        const interval = [4, 8, 12, 16, 20, 24];
-        const forecastItemsListAux = data.list
-          .filter((item, index) => interval.includes(index))
-          .map((item) => {
-            return {
-              hour: moment.unix(item.dt).hour(),
-              weekDay: moment.unix(item.dt).format("dddd"),
-              state: item.weather[0].main.toLowerCase(),
-              temperature: toCelsius(item.main.temp),
-            };
-          });
+        const forecastItemsListAux = getForecastItemList(data)
 
         setForecastItemsList(forecastItemsListAux);
       } catch (error) {
