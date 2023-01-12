@@ -3,8 +3,7 @@ import WelcomePage from "./Pages/WelcomePage";
 import MainPage from "./Pages/MainPage";
 import CytyPage from "./Pages/CityPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import AppFrame from "./Components/AppFrame/AppFrame";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   return (

@@ -32,7 +32,7 @@ const CityPage = (props) => {
 
       <div className="linear-progress">
         {
-          !data && !forecastItemsList && <LinearProgress />
+          !data && !forecastItemsList ? <LinearProgress /> : null
         }
       </div>
 
