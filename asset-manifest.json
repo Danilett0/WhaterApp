@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/WhaterApp/static/css/main.7133e523.css",
-    "main.js": "/WhaterApp/static/js/main.146da27d.js",
+    "main.js": "/WhaterApp/static/js/main.16cb6f52.js",
     "static/media/not_found.jpg": "/WhaterApp/static/media/not_found.0dc03ca41b684845637b.jpg",
     "index.html": "/WhaterApp/index.html",
     "main.7133e523.css.map": "/WhaterApp/static/css/main.7133e523.css.map",
-    "main.146da27d.js.map": "/WhaterApp/static/js/main.146da27d.js.map"
+    "main.16cb6f52.js.map": "/WhaterApp/static/js/main.16cb6f52.js.map"
   },
   "entrypoints": [
     "static/css/main.7133e523.css",
-    "static/js/main.146da27d.js"
+    "static/js/main.16cb6f52.js"
   ]
 }
