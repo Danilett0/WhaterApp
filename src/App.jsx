@@ -9,9 +9,7 @@ const App = () => {
   return (
     <div className="main">
       <Router>
-
         <Switch>
-
           <Route exact path="/">
             <WelcomePage />
           </Route>
@@ -27,9 +25,7 @@ const App = () => {
           <Route>
             <NotFoundPage />
           </Route>
-
         </Switch>
-
       </Router>
     </div>
   );

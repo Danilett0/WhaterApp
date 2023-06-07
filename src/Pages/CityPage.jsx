@@ -8,7 +8,7 @@ import Forecast from "../Components/Forecast/Forecast";
 import AppFrame from "../Components/AppFrame/AppFrame";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import "moment/locale/es";
-import "./main.css";
+import "../styles/main.css";
 
 const CityPage = (props) => {
   const { city, data, forecastItemsList } = useCityPage();
@@ -31,9 +31,7 @@ const CityPage = (props) => {
       </div>
 
       <div className="linear-progress">
-        {
-          !data && !forecastItemsList ? <LinearProgress /> : null
-        }
+        {!data && !forecastItemsList ? <LinearProgress /> : null}
       </div>
 
       <div>{data && <ForecastChart data={data} />}</div>

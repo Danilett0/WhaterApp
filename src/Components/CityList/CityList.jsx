@@ -19,10 +19,7 @@ const renderCityAndCountry =
       >
         <CityInfo city={city} country={country} />
 
-        <Weather
-          temperature={weather && weather.temperature}
-          state={weather && weather.state}
-        />
+        <Weather temperature={weather?.temperature} state={weather?.state} />
       </li>
     );
   };

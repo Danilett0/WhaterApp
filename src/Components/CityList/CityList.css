@@ -26,12 +26,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border-bottom: 5px solid #eee;
+    border-bottom: 10px solid transparent;
+    background-color: rgba(238, 238, 238, 0.411);
 }
 
 .CitiesList:hover{
     cursor: pointer;
-    border-bottom: 5px solid rgb(15, 128, 180);
+    border-bottom: 10px solid rgb(15, 128, 180);
     transition: 1.5s;
 }
 

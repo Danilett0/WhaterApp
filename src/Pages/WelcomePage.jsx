@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import WelcomeScreen from "../Components/WelcomeScreen/WelcomeScreen";
 import { IconContext } from "react-icons";
 import { IoIosSunny } from "react-icons/io";
@@ -7,11 +7,12 @@ import { Link as linkRouter } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
 const WelcomePage = (props) => {
+  const iconValue = useMemo(() => ({ size: "150px", color: "orange" }), []);
   return (
     <div>
       <WelcomeScreen>
         <div className="highlight">
-          <IconContext.Provider value={{ size: "150px", color: "orange" }}>
+          <IconContext.Provider value={iconValue}>
             <IoIosSunny />
           </IconContext.Provider>
 
@@ -20,7 +21,6 @@ const WelcomePage = (props) => {
           <Link component={linkRouter} to="/main" color="inherit">
             <button className="btnIngreso">Ingresar</button>
           </Link>
-
         </div>
       </WelcomeScreen>
     </div>
