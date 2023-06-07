@@ -10,7 +10,7 @@ const App = () => {
     <div className="main">
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/WhaterApp">
             <WelcomePage />
           </Route>
 
